@@ -19,6 +19,8 @@ image:
 environment:
   # Create expected SHELL variable for pipenv.
   SHELL: "windows"
+  BOOST_ROOT: C:/Libraries/boost_1_67_0
+  BOOST_LIBRARYDIR: C:/Libraries/boost_1_67_0/lib64-msvc-14.1
   matrix:
     - GENERATOR: "Visual Studio 15 2017 Win64"
       BUILDFLAGS: "/verbosity:normal"
@@ -33,9 +35,6 @@ init:
   # Remove Python 2.7 from path
   - set PATH=%PATH:C:\Python27;=%
   - set PATH=%PATH:C:\Python27\Scripts;=%
-  # Use Appveyor own Boost 1.67.0
-  - set BOOST_ROOT=C:/Libraries/boost_1_67_0
-  - set BOOST_LIBRARYDIR=%BOOST_ROOT%/lib64-msvc-14.1
 
 before_build:
   - cmake --version
