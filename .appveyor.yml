@@ -19,8 +19,8 @@ image:
 environment:
   # Create expected SHELL variable for pipenv.
   SHELL: "windows"
-  BOOST_ROOT: C:/Libraries/boost_1_64_0
-  BOOST_LIBRARYDIR: C:/Libraries/boost_1_64_0/lib64-msvc-14.1
+  BOOST_ROOT: C:/Libraries/boost_1_67_0
+  BOOST_LIBRARYDIR: C:/Libraries/boost_1_67_0/lib64-msvc-14.1
   matrix:
     - GENERATOR: "Visual Studio 15 2017 Win64"
       BUILDFLAGS: "/verbosity:normal"
@@ -42,6 +42,7 @@ before_build:
 build_script:
   - cmake -H. -Bbuild
           -G"%GENERATOR%"
+          -DBoost_USE_STATIC_LIBS="ON"
           -DCMAKE_BUILD_TYPE=%CONFIGURATION%
           %CMAKEARGS%
   - cmake --build build
