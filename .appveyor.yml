@@ -34,10 +34,8 @@ init:
   - set PATH=%PATH:C:\Python27;=%
   - set PATH=%PATH:C:\Python27\Scripts;=%
   # Use Appveyor own Boost 1.67.0
-  - set BOOST_ROOT=C:\Libraries\boost_1_67_0
-  - ls %BOOST_ROOT%
-  - set BOOST_LIBRARYDIR=%BOOST_ROOT%\libs
-  - ls %BOOST_LIBRARYDIR%
+  - set BOOST_ROOT=C:/Libraries/boost_1_67_0
+  - set BOOST_LIBRARYDIR=%BOOST_ROOT%/lib64-msvc-14.1
 
 before_build:
   - cmake --version
